@@ -1,5 +1,6 @@
 {
-    "title": "My title",
-    "docData": "",
-    "path": "2016/05/blah"
+    "title": "German coalitions",
+    "docDataJson" : "https://interactive.guim.co.uk/docsdata-test/1IKbVHmdd5LIdDXkFjYcv6PQqxoLFPPj5CFEa5NSLgwM.json",
+    "docData": "https://docs.google.com/spreadsheets/d/1IKbVHmdd5LIdDXkFjYcv6PQqxoLFPPj5CFEa5NSLgwM/edit?usp=drivesdk",
+    "path": "2017/08/german-coalitions"
 }

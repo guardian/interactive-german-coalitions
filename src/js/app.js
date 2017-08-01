@@ -1,13 +1,19 @@
-import SpreadsheetToTable from '../components/interactive-table/index.html'
+console.log('firenze')
 
-let el = document.querySelector('.here');
+var xhr = new XMLHttpRequest;
 
-const table = new SpreadsheetToTable({
-    target: el,
-    data: {
-        sheet: "https://interactive.guim.co.uk/docsdata-test/17swcJIV-bGKvWApff2aRsazCOWK66lAZIVW9fUMAy6A.json",
-    	el: el,
-    	truncate: 10,
-    	collapseMobile: true
-    }
-});
+xhr.open('GET','<%= path %>/embed2.html',false);
+xhr.send(); 
+
+
+
+var figures = [].slice.apply(parent.document.querySelectorAll('figure'));
+
+var REPLACEOR = figures.find(function(f){
+    return f.getAttribute("data-alt") == "REPLACEOR";
+})
+
+var msg = parent.document.createElement('div');
+msg.innerHTML = xhr.responseText;
+
+REPLACEOR.parentNode.replaceChild(msg,REPLACEOR);

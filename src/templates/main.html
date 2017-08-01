@@ -1,1 +1,12 @@
-<div class="here"></div>
+<div class="gv-coalitions-wrapper">
+<div class="gv-halfway-marker"></div>
+
+{{#coalitions}}
+<div class="gv-chamber-graph">
+<div class="gv-coalition-name">{{name}}</div>
+{{#partylist}}
+<div class="gv-elex-bar gv-{{name}}" style="width:{{seatshare}}%">{{name}}</div>
+{{/partylist}}
+</div>
+{{/coalitions}}
+</div>
