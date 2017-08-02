@@ -34,6 +34,7 @@ const isDeploy = gutil.env._.indexOf('deploy') > -1;
 
 const version = `v/${Date.now()}`;
 const s3Path = `atoms/${config.path}`;
+const embedPath = `${s3Path}/embed`
 const s3VersionPath = `${s3Path}/${version}`;
 const path = isDeploy ? `${cdnUrl}/${s3VersionPath}` : '.';
 
@@ -192,7 +193,7 @@ gulp.task('deploy', ['build'], cb => {
     }).then(res => {
         let isLive = res.env === 'live';
         gulp.src(`${buildDir}/**/*`)
-            .pipe(s3Upload('max-age=31536000', s3VersionPath))
+            .pipe(s3Upload('max-age=300', s3VersionPath))
             .on('end', () => {
                 gulp.src('config.json')
                     .pipe(file('preview', version))
@@ -200,6 +201,8 @@ gulp.task('deploy', ['build'], cb => {
                     .pipe(s3Upload('max-age=30', s3Path))
                     .on('end', cb);
             });
+        gulp.src(`${buildDir}/**/*`)
+        .pipe(s3Upload('max-age=300', embedPath));
     });
 });
 
@@ -254,6 +257,10 @@ gulp.task('default', ['local'], () => {
 
 gulp.task('url', () => {
     gutil.log(gutil.colors.green(`Atom URL: https://content.guardianapis.com/atom/interactive/interactives/${config.path}`));
+});
+
+gulp.task('embedurl', () => {
+    gutil.log(gutil.colors.green(`Atom URL: https://interactive.guim.co.uk/atoms/${config.path}/embed/main.html`));
 });
 
 gulp.task('log', () => {

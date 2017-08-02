@@ -1,19 +1,15 @@
-console.log('firenze')
+console.log('wien')
 
-var xhr = new XMLHttpRequest;
+var metadata = document.location.href.split("=")[1];
 
-xhr.open('GET','<%= path %>/embed2.html',false);
-xhr.send(); 
+console.log(metadata);
+// var properties = {};
 
+// if (metadata) {
+//     metadata.replace('?', '').split('&').forEach(function (property) {
+//         properties[property.split('=')[0]] = property.split('=')[1]
+//     })
+// }
 
-
-var figures = [].slice.apply(parent.document.querySelectorAll('figure'));
-
-var REPLACEOR = figures.find(function(f){
-    return f.getAttribute("data-alt") == "REPLACEOR";
-})
-
-var msg = parent.document.createElement('div');
-msg.innerHTML = xhr.responseText;
-
-REPLACEOR.parentNode.replaceChild(msg,REPLACEOR);
+// pollid = decodeURIComponent(properties);
+// console.log(pollid);
