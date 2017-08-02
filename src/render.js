@@ -1,4 +1,5 @@
 import mainTemplate from './src/templates/main.html!text'
+import widgetTemplate from './src/templates/widget.html!text'
 import rp from "request-promise"
 import mustache from 'mustache'
 import config from '../config.json'
@@ -74,8 +75,12 @@ export async function render() {
     var polls = sortpolls(data.polls);
     var collatedpolls = sortAllCoalitions(polls, data.coalitions);
     console.log(collatedpolls[0].outcomes[0])
-    var html = mustache.render(mainTemplate, collatedpolls);
-    fs.writeFileSync('./src/assets/embed/embed2.html', html);
-    fs.writeFileSync('./src/assets/embed/polls.json', JSON.stringify(polls));
+    collatedpolls.forEach(function(p){
+        var html = mustache.render(widgetTemplate,p);
+        fs.writeFileSync(`./src/assets/embed${p.pollid}.html`, html);
+    })
+    var html = mustache.render(mainTemplate, collatedpolls[0]);
+//    fs.writeFileSync('./src/assets/embed2.html', html);
+    fs.writeFileSync('./src/assets/polls.json', JSON.stringify(collatedpolls));
     return html;
 }

@@ -3,9 +3,9 @@
          <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="<%= path %>/main.css" />
-    <script src= "<%= path %>/app.js"></script>
+    
     <body>
-
+<div class="gv-widget">
 {{#.}}
 <h2>{{pollheading}}</h2>
 <div class="gv-coalitions-wrapper">
@@ -24,5 +24,7 @@
 {{/outcomes}}
 </div>
 {{/.}}
+</div>
 </body>
+<script src= "<%= path %>/app.js"></script>
 </html>

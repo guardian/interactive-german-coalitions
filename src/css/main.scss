@@ -8,7 +8,7 @@ $linke: #7e39a5;
 $green : #298422;
 $afd : #8f4000;
 $fpd: #ffce4b;
-
+$fdp: #ffce4b;
 
 // Uncomment for embeds
 @import "embed";
@@ -89,6 +89,8 @@ $fpd: #ffce4b;
     &.gv-CDU {background-color: $cdu;}
     &.gv-CSU {background-color: $csu;}
     &.gv-SPD {background-color: $spd;}
+    &.gv-FDP {background-color: $fdp;}
+
     &.gv-Linke {background-color: $linke;}
     &.gv-Grüne {background-color: $green;}
         &.gv-Green {background-color: $green;}
