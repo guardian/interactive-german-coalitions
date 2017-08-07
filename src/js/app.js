@@ -1,16 +1,7 @@
 import iframemessenger from 'iframe-messenger'
 
-window.onload = function() {
-    if (parent) {
-        var oHead = document.getElementsByTagName("head")[0];
-        var arrStyleSheets = parent.document.getElementsByTagName("style");
-        for (var i = 0; i < arrStyleSheets.length; i++)
-            oHead.appendChild(arrStyleSheets[i].cloneNode(true));
-    }
-}
-
 var metadata = 1;
-if (document.location.href.split("=")[1].length > 0) {
+if (document.location.href.slice(-4) != 'html') {
     metadata = document.location.href.split("=")[1];
 }
 
@@ -20,13 +11,19 @@ var path = '<%= path %>/assets/embed' + metadata + '.html';
 xhr.open('GET',path,false);
 xhr.send();
 
-var chart = xhr.responseText;
-
-console.log('wien')
+if (xhr.status == 200){
+    var chart = xhr.responseText
 
 var widgetdiv = document.querySelector('.gv-widget');
 console.log(widgetdiv);
 widgetdiv.innerHTML = chart;
+
+
+
+};
+
+console.log('pressburg');
+
 
 
 iframemessenger.enableAutoResize()

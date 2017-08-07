@@ -5,6 +5,14 @@ import mustache from 'mustache'
 import config from '../config.json'
 import fs from 'fs'
 
+var partialTemplates = {
+    "widget" : widgetTemplate
+}
+
+function twodecimals(input) {
+    return Math.round(input * 100) / 100;
+}
+
 function cleannumber(input) {
     if (typeof input == "string") {
         input = input.replace(/,/g, "");
@@ -26,6 +34,7 @@ function calculateSeatShare(partylist) {
     partylist.forEach(function (p) {
         if (p.name != "Others" && cleannumber(p.voteshare) > 5)
             p.seatshare = (cleannumber(p.voteshare) / partylist.includedtotal) * 100;
+            p.hasSeats = true;
     })
     return partylist;
 }
@@ -37,6 +46,7 @@ function sortpolls(data) {
         partykeys.forEach(function (p) {
             var partyobject = {
                 "name": p,
+                "displayname" : p == 'CDU' ? 'CDU/CSU' : p,
                 "voteshare": poll[p]
             }
             poll.partylist.push(partyobject)
@@ -79,7 +89,7 @@ export async function render() {
         var html = mustache.render(widgetTemplate,p);
         fs.writeFileSync(`./src/assets/embed${p.pollid}.html`, html);
     })
-    var html = mustache.render(mainTemplate, collatedpolls[0]);
+    var html = mustache.render(mainTemplate, collatedpolls[0],partialTemplates);
 //    fs.writeFileSync('./src/assets/embed2.html', html);
     fs.writeFileSync('./src/assets/polls.json', JSON.stringify(collatedpolls));
     return html;

@@ -9,6 +9,7 @@ $green : #298422;
 $afd : #8f4000;
 $fpd: #ffce4b;
 $fdp: #ffce4b;
+$others: #667488;
 
 // Uncomment for embeds
 @import "embed";
@@ -21,12 +22,42 @@ $fdp: #ffce4b;
     margin: 0 !important;
 }
 
+.gv-widget {
+    background-color: white;
+}
+
+.gv-blobs {
+    clear: both;
+}
+
+.gv-legend-entry {
+    display: inline-block;
+    @include fs-textSans(3)
+}
+
+.gv-party-blob{
+    margin-right: 3px;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    border-radius: 0.2em;
+    &.gv-CDU {background-color: $cdu;}
+    &.gv-CSU {background-color: $csu;}
+    &.gv-SPD {background-color: $spd;}
+    &.gv-FDP {background-color: $fdp;}
+    &.gv-AfD {background-color: $afd;}
+    &.gv-Linke {background-color: $linke;}
+    &.gv-Grüne {background-color: $green;}
+    &.gv-Green {background-color: $green;}
+    &.gv-Others {background-color: $others;}
+    
+}
 
 .gv-bars-wrapper {
     width: 100%;
     display: block;
     background-color: lightgrey;
-    height: 50px;
+    height: 25px;
 }
 
 .gv-chamber {
@@ -38,7 +69,16 @@ $fdp: #ffce4b;
 .gv-coalition-name {
     margin-top: 20px;
     @include fs-textSans(4);
-    font-weight: bold;
+
+}
+
+.gv-coalition-name:first-of-type {
+    margin-top: 0px;
+}
+
+
+.gv-source {
+    @include fs-data(3);
 }
 
 .gv-chamber-graph {
@@ -57,7 +97,7 @@ $fdp: #ffce4b;
 .gv-halfway-label {
     margin-left: 48%;
     top: -20px;
-    @include fs-textSans(2)
+    @include fs-data(3)
 }
 
 .gv-chamber-labels {
@@ -82,7 +122,7 @@ $fdp: #ffce4b;
 
 .gv-elex-bar {
     color: white;
-    height: 50px;
+    height: 25px;
     display: inline-block;
     float:left;
     margin: 0 !important;

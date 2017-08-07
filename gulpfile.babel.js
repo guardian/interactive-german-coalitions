@@ -198,7 +198,7 @@ gulp.task('deploy', ['build'], cb => {
                 gulp.src('config.json')
                     .pipe(file('preview', version))
                     .pipe(isLive ? file('live', version) : gutil.noop())
-                    .pipe(s3Upload('max-age=30', s3Path))
+                    .pipe(s3Upload('max-age=300', s3Path))
                     .on('end', cb);
             });
         gulp.src(`${buildDir}/**/*`)

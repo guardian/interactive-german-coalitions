@@ -6,24 +6,9 @@
     
     <body>
 <div class="gv-widget">
-{{#.}}
-<h2>{{pollheading}}</h2>
-<div class="gv-coalitions-wrapper">
-    <span class="gv-halfway-label">50%</div>
-<div class="gv-halfway-marker"></div>
 
-{{#outcomes}}
-<div class="gv-chamber-graph">
-<div class="gv-coalition-name">{{heading}}</div>
-<div class="gv-bars-wrapper">
-{{#filteredlist}}
-<div class="gv-elex-bar gv-{{name}}" style="width:{{seatshare}}%">{{name}}</div>
-{{/filteredlist}}
-</div>
-</div>
-{{/outcomes}}
-</div>
-{{/.}}
+    {{> widget }}
+    
 </div>
 </body>
 <script src= "<%= path %>/app.js"></script>
