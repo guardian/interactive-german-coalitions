@@ -1,8 +1,8 @@
 @import "mq";
 @import "fonts";
 
-$cdu : #005689;
-$csu : #4982b9;
+$cdu : #333;
+$csu : #333;
 $spd : #c5230e;
 $linke: #7e39a5;
 $green : #298422;
@@ -54,10 +54,11 @@ $others: #667488;
 }
 
 .gv-bars-wrapper {
-    width: 100%;
-    display: block;
     background-color: lightgrey;
     height: 25px;
+    margin-top: 2px;
+    width: 100%;
+    clear: both;
 }
 
 .gv-chamber {
@@ -66,14 +67,40 @@ $others: #667488;
     margin-bottom: 10px;
 }
 
+.gv-halfway-marker {
+    height: 100%;
+    width: 1px;
+    background-color: #333;
+    left: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+
 .gv-coalition-name {
     margin-top: 20px;
     @include fs-textSans(4);
-
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(256,256,256,1);
+    margin-bottom: 1px;
+    line-height: 1.4em;
+    max-height: 1.4em;
+    overflow: hidden;
 }
 
+.gv-coalition-name-wrapper {
+    margin-bottom: 1px;
+    margin-top: 1px;
+    display: block;
+    clear: both;
+    width: 100%;
+    height: 1.4em;
+}
+
+
 .gv-coalition-name:first-of-type {
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
 
@@ -95,7 +122,9 @@ $others: #667488;
 }
 
 .gv-halfway-label {
-    margin-left: 48%;
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: center;
     top: -20px;
     @include fs-data(3)
 }
@@ -106,19 +135,11 @@ $others: #667488;
 }
 
 .gv-coalitions-wrapper {
+    margin-top: 10px;
     overflow: hidden;
     position: relative;
 }
 
-.gv-halfway-marker {
-    height: 100%;
-    width: 1px;
-    background-color: #000;
-    left: 50%;
-    position: absolute;
-    /* top: 300px; */
-    z-index: 1;
-}
 
 .gv-elex-bar {
     color: white;

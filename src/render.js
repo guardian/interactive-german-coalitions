@@ -68,6 +68,7 @@ function sortAllCoalitions(polls, permutations) {
             var partyArray = p.parties.split(",");
             var outcome = {
                 "heading": p.name,
+                "gloss" : p.longname,
                 "filteredlist" : newpoll.partylist.filter(function(d) {
                     return partyArray.indexOf(d.name) >= 0;
                 })
