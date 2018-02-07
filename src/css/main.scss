@@ -55,7 +55,7 @@ $others: #667488;
 
 .gv-bars-wrapper {
     background-color: lightgrey;
-    height: 25px;
+    height: 20px;
     margin-top: 2px;
     width: 100%;
     clear: both;
@@ -143,7 +143,7 @@ $others: #667488;
 
 .gv-elex-bar {
     color: white;
-    height: 25px;
+    height: 20px;
     display: inline-block;
     float:left;
     margin: 0 !important;
@@ -157,6 +157,8 @@ $others: #667488;
         &.gv-Green {background-color: $green;}
 
     box-sizing: border-box;
+
+    @include fs-textSans(3);
 }
 
 .gv-elex-labels {
