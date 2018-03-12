@@ -80,7 +80,7 @@ $others: #667488;
 .gv-coalition-name {
     margin-top: 20px;
     @include fs-textSans(3);
-    position: absolute;
+    position: relative;
     z-index: 2;
     background-color: rgba(256,256,256,1);
     margin-bottom: 1px;
